@@ -23,15 +23,11 @@ Run a series of dockerfiles, chaining the output of one into the next
 
 3c. go to the next directory
 
-3d. run the dockerfile ast parser
+3d. run `ruby replace_dockerfile_from.rb /path/to_dockerfile previous_build_name` on the Dockerfile in the repo
 
-3e. change the from node to point at dockerchain/<image_name>
+3e. run `docker build -e dockerchain/<second_image_name>` on the new dockerfile
 
-3f. output the updated dockerfile
-
-3g. run `docker build -e dockerchain/<second_image_name>` on the new dockerfile
-
-3h. repeat e through g on all of the repos in the yaml file, changing the image name on each one
+3f. repeat c through e on all of the repos in the yaml file, changing the image name on each one
 
 ## Contributing
 
