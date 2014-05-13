@@ -18,13 +18,20 @@ Run a series of dockerfiles, chaining the output of one into the next
 3. Parse the yaml file and loop through the repos
 
 3a. clone the first repo into the repos directory
-3b. run `docker build -e dockerchain/1` on the dockerfile in the directory
+
+3b. run `docker build -e dockerchain/<image_name>` on the dockerfile in the directory
+
 3c. go to the next directory
+
 3d. run the dockerfile ast parser
-3e. change the from node to point at dockerchain/1
+
+3e. change the from node to point at dockerchain/<image_name>
+
 3f. output the updated dockerfile
-3g. run `docker build -e dockerchain/2` on the new dockerfile
-3h. repeat e through g on all of the repos in the yaml file, incrementing the build number on each one
+
+3g. run `docker build -e dockerchain/<second_image_name>` on the new dockerfile
+
+3h. repeat e through g on all of the repos in the yaml file, changing the image name on each one
 
 ## Contributing
 
