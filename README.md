@@ -19,7 +19,7 @@ Run a series of dockerfiles, chaining the output of one into the next
 
 3a. clone the first repo into the repos directory
 
-3b. run `docker build -e dockerchain/<image_name>` on the dockerfile in the directory
+3b. run `docker build -t dockerchain/<image_name>` on the dockerfile in the directory
 
 3c. go to the next directory
 
