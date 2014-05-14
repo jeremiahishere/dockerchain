@@ -1,2 +1,4 @@
 - image_name: sshable
   repo_url: https://github.com/imightbeinatree/docker-sshable.git
+- image_name: debuggable
+  repo_url: https://github.com/imightbeinatree/docker-debuggable.git
