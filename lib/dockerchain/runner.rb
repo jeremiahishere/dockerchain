@@ -1,5 +1,13 @@
 module Dockerchain
   class Runner
+    def initialize(options)
+      unless options.empty?
+        @logger = Logger.new(options.log_file) if options.log_file
+        @src_path = Logger.new(options.src_path) if options.src_path
+        @build_path = Logger.new(options.build_path) if options.build_path
+      end
+    end
+
     def run(config_file = 'dockerchain.yml')
       logger.info "Removing repos from previous run"
       runcmd "rm -rf '#{src_path}'"
@@ -32,15 +40,15 @@ module Dockerchain
     private
 
     def logger
-      Dockerchain.logger
+      @logger ||= Dockerchain.logger
     end
 
     def src_path
-      Dockerchain.src_path
+      @src_path ||= Dockerchain.src_path
     end
 
     def build_path
-      Dockerchain.build_path
+      @build_path ||= Dockerchain.build_path
     end
 
     def parse(config_file)

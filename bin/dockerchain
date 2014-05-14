@@ -2,15 +2,16 @@
 
 begin
   require 'dockerchain'
+  require 'dockerchain/cli'
 rescue LoadError
   require 'rubygems'
   require 'dockerchain'
+  require 'dockerchain/cli'
 end
 
-if ARGV.empty? || !ARGV[0]
-  puts 'Syntax: dockerchain path/to/dockerchain.yml'
-  Kernel.exit(1)
-end
+options = Dockerchain::CLI::OptionParser.parse!(ARGV)
+chain_file = ARGV.pop
+raise "Need to specify a file to process" unless chain_file
 
-runner = Dockerchain::Runner.new
-runner.run(ARGV[0])
+runner = Dockerchain::Runner.new(options)
+runner.run(chain_file)
