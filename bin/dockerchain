@@ -1,8 +1,14 @@
 #!/usr/bin/env ruby
 
-if ARGV.empty
+begin
+  require 'dockerchain'
+rescue LoadError
+  require 'rubygems'
+  require 'dockerchain'
+end
+
+if ARGV.empty? || !ARGV[0]
   raise 'Command syntax: dockerchain path/to/dockerchain.yml'
 end
 
-require_relative 'lib/dockerchain'
 Dockerchain::Runner.run(ARGV[0])

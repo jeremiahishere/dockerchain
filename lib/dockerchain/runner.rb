@@ -1,13 +1,13 @@
 module Dockerchain
   class Runner
-    def run(chain = 'dockerchain.yml')
+    def run(config_file = 'dockerchain.yml')
       logger.info "Removing repos from previous run"
       runcmd "rm -rf '#{src_path}'"
 
       logger.info "Creating #{src_path}..."
       FileUtils.mkpath(src_path)
 
-      images = parse(chain)
+      images = parse(config_file)
 
       image_name = ''
 
@@ -43,8 +43,8 @@ module Dockerchain
       Dockerchain.build_path
     end
 
-    def parse(chain)
-      YAML.load(File.read(chain))
+    def parse(config_file)
+      YAML.load(File.read(config_file))
     end
 
     def runcmd(command = '')
