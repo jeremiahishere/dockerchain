@@ -8,7 +8,9 @@ rescue LoadError
 end
 
 if ARGV.empty? || !ARGV[0]
-  raise 'Command syntax: dockerchain path/to/dockerchain.yml'
+  puts 'Syntax: dockerchain path/to/dockerchain.yml'
+  Kernel.exit(1)
 end
 
-Dockerchain::Runner.run(ARGV[0])
+runner = Dockerchain::Runner.new
+runner.run(ARGV[0])

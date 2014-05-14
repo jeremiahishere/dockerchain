@@ -1,4 +1,5 @@
 require 'dockerchain/version'
+require 'dockerchain/runner'
 
 require 'yaml'
 require 'logger'
@@ -14,7 +15,7 @@ module Dockerchain
     'dockerchain'
   end
 
-  def logger
+  def self.logger
     @@logger ||= Logger.new(STDOUT)
   end
 end

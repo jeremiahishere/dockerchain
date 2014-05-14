@@ -15,7 +15,7 @@ manually install it.
 
 write a yml file similar to sshable.yml.  The script will automatically prepend the image_name field with 'dockerchain/'.  The repos should have a Dockerfile in their root directory and must be available to the current user.
 
-run `ruby parse.rb my_config_file.yml`
+run `bundle exec dockerchain path/to/my_config_file.yml`
 
 ## How it works
 
