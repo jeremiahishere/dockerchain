@@ -8,6 +8,9 @@ $logger = Logger.new(STDOUT)
 SRC_PATH='repos'
 BUILD_PATH='dockerchain'
 
+$logger.info "Removing repos from previous run"
+`rm -rf repos/*`
+
 $logger.info "Creating #{SRC_PATH}..."
 FileUtils.mkpath(SRC_PATH)
 
@@ -31,6 +34,7 @@ images.each do |repo|
   $logger.info "Rewriting the dockerfile for #{image_name} to point at #{previous_image_name}"
   `ruby replace_dockerfile_from.rb #{File.join(SRC_PATH, image_name, 'Dockerfile')} #{previous_image_name}`
 
-  $logger.info "docker build -t '#{File.join(BUILD_PATH, image_name)}' '#{File.join(SRC_PATH, image_name, 'Dockerfile')}'"
-  #`docker build -t '#{File.join(BUILD_PATH, image_name)}' '#{File.join(SRC_PATH, image_name, 'Dockerfile')}`
+  command = "docker build -t #{image_name} #{File.join(SRC_PATH, image_name)}"
+  $logger.info command
+  `#{command}`
 end
