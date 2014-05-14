@@ -1,0 +1,8 @@
+#!/usr/bin/env ruby
+
+if ARGV.empty
+  raise 'Command syntax: dockerchain path/to/dockerchain.yml'
+end
+
+require_relative 'lib/dockerchain'
+Dockerchain::Runner.run(ARGV[0])
