@@ -4,7 +4,20 @@ Run a series of dockerfiles, chaining the output of one into the next
 
 ## Installation
 
+git clone git@github.com:jeremiahishere/dockerchain.git
+
+cd to directory
+
+bundle install
+
+if necessary, clone git@github.com:jeremiahishere/dockerfile_ast.git and manually install it
+
+
 ## Usage
+
+write a yml file similar to sshable.yml.  The script will automatically prepend the image_name field with 'dockerchain/'.  The repos should have a Dockerfile in their root directory and must be available to the current user.
+
+run `ruby parse.rb <my_yml_file>.yml
 
 ## How it works
 
