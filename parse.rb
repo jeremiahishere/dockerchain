@@ -1,7 +1,6 @@
 require 'yaml'
 require 'logger'
 require 'fileutils'
-require 'debugger'
 
 $logger = Logger.new(STDOUT)
 
