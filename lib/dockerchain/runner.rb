@@ -1,11 +1,9 @@
 module Dockerchain
   class Runner
     def initialize(options)
-      unless options.empty?
-        @logger = Logger.new(options.log_file) if options.log_file
-        @src_path = Logger.new(options.src_path) if options.src_path
-        @build_path = Logger.new(options.build_path) if options.build_path
-      end
+      @logger = Logger.new(options.log_file) unless options.log_file.blank?
+      @src_path = Logger.new(options.src_path) unless options.src_path.blank?
+      @build_path = Logger.new(options.build_path) unless options.build_path.blank?
     end
 
     def run(config_file = 'dockerchain.yml')

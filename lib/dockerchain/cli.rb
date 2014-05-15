@@ -1,4 +1,4 @@
-require 'cli/option_parser'
+require 'dockerchain/cli/option_parser'
 
 module Dockerchain
   module CLI

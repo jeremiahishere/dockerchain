@@ -9,9 +9,13 @@ rescue LoadError
   require 'dockerchain/cli'
 end
 
-options = Dockerchain::CLI::OptionParser.parse!(ARGV)
+option_parser = Dockerchain::CLI::OptionParser.new
+options = option_parser.parse(ARGV)
 chain_file = ARGV.pop
-raise "Need to specify a file to process" unless chain_file
+unless chain_file
+  puts option_parser.help
+  exit(1)
+end
 
 runner = Dockerchain::Runner.new(options)
 runner.run(chain_file)
