@@ -1,6 +1,6 @@
 # Dockerchain
 
-Run a series of dockerfiles, chaining the output of one into the next
+Build a series of docker images from a set of dockerfiles, chaining the output of one into the next.
 
 ## Installation
 
