@@ -6,8 +6,8 @@ require 'dockerchain/version'
 Gem::Specification.new do |spec|
   spec.name          = 'dockerchain'
   spec.version       = Dockerchain::VERSION
-  spec.authors       = ['Adam Dunson']
-  spec.email         = ['adam@cloudspace.com']
+  spec.authors       = ['Adam Dunson', 'Jeremiah Hemphill']
+  spec.email         = ['adam@cloudspace.com', 'jeremiah@cloudspace.com']
   spec.summary       = %q{Build a series of docker images from a set of dockerfiles, chaining the output of one into the next.}
   spec.description   = %q{Build a series of docker images from a set of dockerfiles, chaining the output of one into the next.}
   spec.homepage      = ''

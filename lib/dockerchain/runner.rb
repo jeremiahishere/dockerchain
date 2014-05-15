@@ -80,10 +80,10 @@ module Dockerchain
       end
     end
 
-    def replace_dockerfile_from(filename, previous_build = nil)
+    def replace_dockerfile_from(filename, previous_build = '')
       dockerfile = File.read(filename)
 
-      if previous_build
+      if !previous_build.blank?
         parser = DockerfileAst::Parser.new
         ast = parser.parse(dockerfile)
         update_from_node!(ast, previous_build)
