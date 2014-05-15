@@ -8,8 +8,8 @@ Gem::Specification.new do |spec|
   spec.version       = Dockerchain::VERSION
   spec.authors       = ['Adam Dunson']
   spec.email         = ['adam@cloudspace.com']
-  spec.summary       = %q{Run a series of dockerfiles, chaining the output of one into the next}
-  spec.description   = %q{Run a series of dockerfiles, chaining the output of one into the next}
+  spec.summary       = %q{Build a series of docker images from a set of dockerfiles, chaining the output of one into the next.}
+  spec.description   = %q{Build a series of docker images from a set of dockerfiles, chaining the output of one into the next.}
   spec.homepage      = ''
   spec.license       = 'MIT'
 
